@@ -1,15 +1,14 @@
-import Cookies from 'js-cookie'
 
-const TokenKey = 'vue_admin_template_token'
+const UserKey = 'USER'
 
-export function getToken() {
-  return Cookies.get(TokenKey)
+export function getUser() {
+  return JSON.parse(sessionStorage.getItem(UserKey))
 }
 
-export function setToken(token) {
-  return Cookies.set(TokenKey, token)
+export function setUser(data) {
+  return sessionStorage.setItem(UserKey, JSON.stringify(data))
 }
 
-export function removeToken() {
-  return Cookies.remove(TokenKey)
+export function removeUser() {
+  return sessionStorage.removeItem(UserKey)
 }

@@ -2,9 +2,9 @@ import request from '@/utils/request'
 
 export function login(data) {
   return request({
-    url: '/vue-admin-template/user/login',
+    url: `/admin.php?controller=admin_interface&action=userList`,
     method: 'post',
-    data
+    data: data
   })
 }
 

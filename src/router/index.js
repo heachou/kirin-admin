@@ -42,7 +42,6 @@ export const constantRoutes = [
     component: () => import('@/views/404'),
     hidden: true
   },
-
   {
     path: '/',
     component: Layout,
@@ -51,121 +50,249 @@ export const constantRoutes = [
       path: 'dashboard',
       name: 'Dashboard',
       component: () => import('@/views/dashboard/index'),
-      meta: { title: 'Dashboard', icon: 'dashboard' }
+      meta: { title: '首页', icon: 'dashboard' }
     }]
   },
 
   {
-    path: '/example',
+    path: '/audit',
     component: Layout,
-    redirect: '/example/table',
-    name: 'Example',
-    meta: { title: 'Example', icon: 'el-icon-s-help' },
+    redirect: '/audit/operate',
+    name: 'Audit',
+    meta: { title: '运维审计', icon: 'el-icon-s-help' },
     children: [
       {
-        path: 'table',
-        name: 'Table',
+        path: 'operate',
+        name: 'Operate',
         component: () => import('@/views/table/index'),
-        meta: { title: 'Table', icon: 'table' }
+        meta: { title: '操作审计', icon: 'table' }
       },
       {
-        path: 'tree',
-        name: 'Tree',
+        path: 'application',
+        name: 'Application',
         component: () => import('@/views/tree/index'),
-        meta: { title: 'Tree', icon: 'tree' }
+        meta: { title: '应用审计', icon: 'tree' }
+      },
+      {
+        path: 'monitor',
+        name: 'Monitor',
+        component: () => import('@/views/tree/index'),
+        meta: { title: '实时监控', icon: 'tree' }
+      },
+      {
+        path: 'lookup',
+        name: 'Lookup',
+        component: () => import('@/views/tree/index'),
+        meta: { title: '审计查询', icon: 'tree' }
       }
     ]
   },
-
   {
-    path: '/form',
+    path: '/report',
     component: Layout,
+    redirect: '/audit/systemAuth',
+    meta: { title: '报表统计', icon: 'el-icon-s-help' },
     children: [
       {
-        path: 'index',
-        name: 'Form',
+        path: 'systemAuth',
+        name: 'SystemAuth',
         component: () => import('@/views/form/index'),
-        meta: { title: 'Form', icon: 'form' }
+        meta: { title: '系统权限', icon: 'form' }
+      },
+      {
+        path: 'loginReport',
+        name: 'LoginReport',
+        component: () => import('@/views/form/index'),
+        meta: { title: '登录报表', icon: 'form' }
+      },
+      {
+        path: 'operate',
+        name: 'Operator',
+        component: () => import('@/views/form/index'),
+        meta: { title: '操作报表', icon: 'form' }
+      },
+      {
+        path: 'warning',
+        name: 'Warning',
+        component: () => import('@/views/form/index'),
+        meta: { title: '告警报表', icon: 'form' }
+      },
+      {
+        path: 'pic',
+        name: 'Pic',
+        component: () => import('@/views/form/index'),
+        meta: { title: '图形输出', icon: 'form' }
+      },
+      {
+        path: 'setting',
+        name: 'SettingReport',
+        component: () => import('@/views/form/index'),
+        meta: { title: '报表配置', icon: 'form' }
+      },
+      {
+        path: 'regular',
+        name: 'Regular',
+        component: () => import('@/views/form/index'),
+        meta: { title: '定期报表', icon: 'form' }
+      },
+      {
+        path: 'status',
+        name: 'Status',
+        component: () => import('@/views/form/index'),
+        meta: { title: '系统状态', icon: 'form' }
       }
     ]
   },
-
   {
-    path: '/nested',
+    path: '/resource',
     component: Layout,
-    redirect: '/nested/menu1',
-    name: 'Nested',
+    redirect: '/resource/webUser',
+    name: 'Resource',
     meta: {
-      title: 'Nested',
+      title: '资源管理',
       icon: 'nested'
     },
     children: [
       {
-        path: 'menu1',
+        path: 'webUser',
         component: () => import('@/views/nested/menu1/index'), // Parent router-view
-        name: 'Menu1',
-        meta: { title: 'Menu1' },
-        children: [
-          {
-            path: 'menu1-1',
-            component: () => import('@/views/nested/menu1/menu1-1'),
-            name: 'Menu1-1',
-            meta: { title: 'Menu1-1' }
-          },
-          {
-            path: 'menu1-2',
-            component: () => import('@/views/nested/menu1/menu1-2'),
-            name: 'Menu1-2',
-            meta: { title: 'Menu1-2' },
-            children: [
-              {
-                path: 'menu1-2-1',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-1'),
-                name: 'Menu1-2-1',
-                meta: { title: 'Menu1-2-1' }
-              },
-              {
-                path: 'menu1-2-2',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-2'),
-                name: 'Menu1-2-2',
-                meta: { title: 'Menu1-2-2' }
-              }
-            ]
-          },
-          {
-            path: 'menu1-3',
-            component: () => import('@/views/nested/menu1/menu1-3'),
-            name: 'Menu1-3',
-            meta: { title: 'Menu1-3' }
-          }
-        ]
+        name: 'WebUser',
+        meta: { title: 'web用户' }
       },
       {
-        path: 'menu2',
+        path: 'equipmentManage',
         component: () => import('@/views/nested/menu2/index'),
-        name: 'Menu2',
-        meta: { title: 'menu2' }
+        name: 'EquipmentManage',
+        meta: { title: '设备管理' }
+      },
+      {
+        path: 'authManage',
+        component: () => import('@/views/nested/menu2/index'),
+        name: 'AuthManage',
+        meta: { title: '授权管理' }
+      },
+      {
+        path: 'appManage',
+        component: () => import('@/views/nested/menu2/index'),
+        name: 'AppManage',
+        meta: { title: '应用管理' }
+      },
+      {
+        path: 'strategyManage',
+        component: () => import('@/views/nested/menu2/index'),
+        name: 'strategyManage',
+        meta: { title: '策略管理' }
       }
     ]
   },
-
   {
-    path: 'external-link',
+    path: '/config',
     component: Layout,
+    redirect: '/config/vars',
+    name: 'Config',
+    meta: {
+      title: '系统配置',
+      icon: 'setting'
+    },
     children: [
       {
-        path: 'https://panjiachen.github.io/vue-element-admin-site/#/',
-        meta: { title: 'External Link', icon: 'link' }
+        path: 'vars',
+        component: () => import('@/views/nested/menu1/index'), // Parent router-view
+        name: 'Vars',
+        meta: { title: '参数配置' }
+      },
+      {
+        path: 'net',
+        component: () => import('@/views/nested/menu2/index'),
+        name: 'Net',
+        meta: { title: '网络配置' }
+      },
+      {
+        path: 'sys',
+        component: () => import('@/views/nested/menu2/index'),
+        name: 'Sys',
+        meta: { title: '系统管理' }
       }
     ]
   },
-
+  {
+    path: '/vpn',
+    component: Layout,
+    redirect: '/vpn/vars',
+    name: 'VPN',
+    meta: {
+      title: 'VPN',
+      icon: 'vpn'
+    },
+    children: [
+      {
+        path: 'vars',
+        component: () => import('@/views/nested/menu1/index'), // Parent router-view
+        name: 'Vars',
+        meta: { title: 'VPN配置' }
+      },
+      {
+        path: 'route',
+        component: () => import('@/views/nested/menu2/index'),
+        name: 'Route',
+        meta: { title: 'VPN路由' }
+      },
+      {
+        path: 'online',
+        component: () => import('@/views/nested/menu2/index'),
+        name: 'Online',
+        meta: { title: '在线用户' }
+      },
+      {
+        path: 'log',
+        component: () => import('@/views/nested/menu2/index'),
+        name: 'VPNLog',
+        meta: { title: 'VPN LOG' }
+      }
+    ]
+  },
+  {
+    path: '/else',
+    component: Layout,
+    redirect: '/else/token',
+    name: 'Else',
+    meta: {
+      title: '其他',
+      icon: 'vpn'
+    },
+    children: [
+      {
+        path: 'token',
+        component: () => import('@/views/nested/menu1/index'), // Parent router-view
+        name: 'Token',
+        meta: { title: '动态令牌' }
+      },
+      {
+        path: 'userInfo',
+        component: () => import('@/views/nested/menu2/index'),
+        name: 'UserInfo',
+        meta: { title: '个人信息' }
+      },
+      {
+        path: 'license',
+        component: () => import('@/views/nested/menu2/index'),
+        name: 'License',
+        meta: { title: 'License' }
+      },
+      {
+        path: 'tools',
+        component: () => import('@/views/nested/menu2/index'),
+        name: 'Tools',
+        meta: { title: '工具下载' }
+      }
+    ]
+  },
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }
 ]
 
 const createRouter = () => new Router({
-  // mode: 'history', // require service support
+  mode: 'history', // require service support
   scrollBehavior: () => ({ y: 0 }),
   routes: constantRoutes
 })

@@ -1,12 +1,10 @@
 import { login, logout, getInfo } from '@/api/user'
-import { getToken, setToken, removeToken } from '@/utils/auth'
+import { getUser, setUser, removeUser } from '@/utils/auth'
 import { resetRouter } from '@/router'
 
 const getDefaultState = () => {
   return {
-    token: getToken(),
-    name: '',
-    avatar: ''
+    data: getUser()
   }
 }
 
@@ -16,8 +14,8 @@ const mutations = {
   RESET_STATE: (state) => {
     Object.assign(state, getDefaultState())
   },
-  SET_TOKEN: (state, token) => {
-    state.token = token
+  SET_USER: (state, user) => {
+    state.data = Object.assign({}, user)
   },
   SET_NAME: (state, name) => {
     state.name = name
@@ -30,13 +28,27 @@ const mutations = {
 const actions = {
   // user login
   login({ commit }, userInfo) {
-    const { username, password } = userInfo
+    const { username } = userInfo
     return new Promise((resolve, reject) => {
-      login({ username: username.trim(), password: password }).then(response => {
+      const params = {
+        username,
+        page: 1,
+        items_per_page: 100
+      }
+      login(params).then(response => {
         const { data } = response
-        commit('SET_TOKEN', data.token)
-        setToken(data.token)
-        resolve()
+        if (!data || data.length === 0) {
+          reject({ msg: '没有找到该用户' })
+        } else {
+          const user = data.filter(a => a.username === username)
+          if (user.length) {
+            commit('SET_USER', user[0])
+            setUser(user[0])
+            resolve()
+          } else {
+            reject({ msg: '没有找到该用户' })
+          }
+        }
       }).catch(error => {
         reject(error)
       })
@@ -68,7 +80,7 @@ const actions = {
   logout({ commit, state }) {
     return new Promise((resolve, reject) => {
       logout(state.token).then(() => {
-        removeToken() // must remove  token  first
+        removeUser() // must remove  token  first
         resetRouter()
         commit('RESET_STATE')
         resolve()
@@ -81,7 +93,7 @@ const actions = {
   // remove token
   resetToken({ commit }) {
     return new Promise(resolve => {
-      removeToken() // must remove  token  first
+      removeUser() // must remove  token  first
       commit('RESET_STATE')
       resolve()
     })
