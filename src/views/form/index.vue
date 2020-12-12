@@ -19,6 +19,7 @@
           <el-time-picker v-model="form.date2" type="fixed-time" placeholder="Pick a time" style="width: 100%;" />
         </el-col>
       </el-form-item>
+      
       <el-form-item label="Instant delivery">
         <el-switch v-model="form.delivery" />
       </el-form-item>
