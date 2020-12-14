@@ -7,7 +7,8 @@
     <div class="right-menu">
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
-          <img :src="avatar+'?imageView2/1/w/80/h/80'" class="user-avatar">
+          <img :src="avatar" class="user-avatar">
+          {{name}}
           <i class="el-icon-caret-bottom" />
         </div>
         <el-dropdown-menu slot="dropdown" class="user-dropdown">
@@ -16,6 +17,9 @@
               首页
             </el-dropdown-item>
           </router-link>
+          <el-dropdown-item @click.native="change">
+            <span style="display:block;">切换</span>
+          </el-dropdown-item>
           <el-dropdown-item divided @click.native="logout">
             <span style="display:block;">退出</span>
           </el-dropdown-item>
@@ -38,10 +42,18 @@ export default {
   computed: {
     ...mapGetters([
       'sidebar',
-      'avatar'
+      'name'
     ])
   },
+  data(){
+    return {
+      avatar: require('@/assets/images/yw_43.jpg')
+    }
+  },
   methods: {
+    change(){
+      console.log('切换')
+    },
     toggleSideBar() {
       this.$store.dispatch('app/toggleSideBar')
     },
@@ -106,24 +118,24 @@ export default {
     }
 
     .avatar-container {
-      margin-right: 30px;
+      margin-right: 24px;
 
       .avatar-wrapper {
         margin-top: 5px;
         position: relative;
-
+        display: flex;
+        cursor: pointer;
+        align-items: center;
         .user-avatar {
           cursor: pointer;
-          width: 40px;
-          height: 40px;
+          width: 32px;
+          height: 32px;
+          margin-right: 4px;
           border-radius: 10px;
         }
 
         .el-icon-caret-bottom {
           cursor: pointer;
-          position: absolute;
-          right: -20px;
-          top: 25px;
           font-size: 12px;
         }
       }
