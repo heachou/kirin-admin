@@ -64,8 +64,8 @@ export const constantRoutes = [
       {
         path: 'operate',
         name: 'Operate',
-        component: () => import('@/views/table/index'),
-        meta: { title: '操作审计', icon: 'table' }
+        component: () => import('@/views/audit/operate/operate'),
+        meta: { title: '操作审计' }
       },
       {
         path: 'application',
