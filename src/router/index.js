@@ -46,12 +46,14 @@ export const constantRoutes = [
     path: '/',
     component: Layout,
     redirect: '/dashboard',
-    children: [{
-      path: 'dashboard',
-      name: 'Dashboard',
-      component: () => import('@/views/dashboard/index'),
-      meta: { title: '首页', icon: 'dashboard' }
-    }]
+    children: [
+      {
+        path: 'dashboard',
+        name: 'Dashboard',
+        component: () => import('@/views/dashboard/index'),
+        meta: { title: '首页', icon: 'dashboard' }
+      }
+    ]
   },
 
   {
@@ -71,19 +73,19 @@ export const constantRoutes = [
         path: 'application',
         name: 'Application',
         component: () => import('@/views/tree/index'),
-        meta: { title: '应用审计', icon: 'tree' }
+        meta: { title: '应用审计' }
       },
       {
         path: 'monitor',
         name: 'Monitor',
         component: () => import('@/views/tree/index'),
-        meta: { title: '实时监控', icon: 'tree' }
+        meta: { title: '实时监控' }
       },
       {
         path: 'lookup',
         name: 'Lookup',
         component: () => import('@/views/tree/index'),
-        meta: { title: '审计查询', icon: 'tree' }
+        meta: { title: '审计查询' }
       }
     ]
   },
@@ -91,55 +93,55 @@ export const constantRoutes = [
     path: '/report',
     component: Layout,
     redirect: '/audit/systemAuth',
-    meta: { title: '报表统计', icon: 'el-icon-s-help' },
+    meta: { title: '报表统计', icon: 'el-icon-document' },
     children: [
       {
         path: 'systemAuth',
         name: 'SystemAuth',
         component: () => import('@/views/form/index'),
-        meta: { title: '系统权限', icon: 'form' }
+        meta: { title: '系统权限' }
       },
       {
         path: 'loginReport',
         name: 'LoginReport',
         component: () => import('@/views/form/index'),
-        meta: { title: '登录报表', icon: 'form' }
+        meta: { title: '登录报表' }
       },
       {
         path: 'operate',
         name: 'Operator',
         component: () => import('@/views/form/index'),
-        meta: { title: '操作报表', icon: 'form' }
+        meta: { title: '操作报表' }
       },
       {
         path: 'warning',
         name: 'Warning',
         component: () => import('@/views/form/index'),
-        meta: { title: '告警报表', icon: 'form' }
+        meta: { title: '告警报表' }
       },
       {
         path: 'pic',
         name: 'Pic',
         component: () => import('@/views/form/index'),
-        meta: { title: '图形输出', icon: 'form' }
+        meta: { title: '图形输出' }
       },
       {
         path: 'setting',
         name: 'SettingReport',
         component: () => import('@/views/form/index'),
-        meta: { title: '报表配置', icon: 'form' }
+        meta: { title: '报表配置' }
       },
       {
         path: 'regular',
         name: 'Regular',
         component: () => import('@/views/form/index'),
-        meta: { title: '定期报表', icon: 'form' }
+        meta: { title: '定期报表' }
       },
       {
         path: 'status',
         name: 'Status',
         component: () => import('@/views/form/index'),
-        meta: { title: '系统状态', icon: 'form' }
+        meta: { title: '系统状态' }
       }
     ]
   },
@@ -150,7 +152,7 @@ export const constantRoutes = [
     name: 'Resource',
     meta: {
       title: '资源管理',
-      icon: 'nested'
+      icon: 'el-icon-box'
     },
     children: [
       {
@@ -192,7 +194,7 @@ export const constantRoutes = [
     name: 'Config',
     meta: {
       title: '系统配置',
-      icon: 'setting'
+      icon: 'el-icon-setting'
     },
     children: [
       {
@@ -222,7 +224,7 @@ export const constantRoutes = [
     name: 'VPN',
     meta: {
       title: 'VPN',
-      icon: 'vpn'
+      icon: 'el-icon-s-promotion'
     },
     children: [
       {
@@ -258,7 +260,7 @@ export const constantRoutes = [
     name: 'Else',
     meta: {
       title: '其他',
-      icon: 'vpn'
+      icon: 'el-icon-s-management'
     },
     children: [
       {
@@ -291,11 +293,12 @@ export const constantRoutes = [
   { path: '*', redirect: '/404', hidden: true }
 ]
 
-const createRouter = () => new Router({
-  mode: 'history', // require service support
-  scrollBehavior: () => ({ y: 0 }),
-  routes: constantRoutes
-})
+const createRouter = () =>
+  new Router({
+    mode: 'history', // require service support
+    scrollBehavior: () => ({ y: 0 }),
+    routes: constantRoutes
+  })
 
 const router = createRouter()
 
