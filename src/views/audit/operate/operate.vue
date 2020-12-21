@@ -10,12 +10,24 @@
       <el-tab-pane label="X11" name="X11">X11</el-tab-pane>
       <el-tab-pane label="流程审批" name="流程审批">流程审批</el-tab-pane>
     </el-tabs>
+    <Pagination
+      :total="page.total"
+      :page-num="page.pageNum"
+      :page-size="page.pageSize"
+      @paginationChange="paginationChange"
+    />
   </div>
 </template>
 
 <script>
+import Pagination from '@/components/pagination'
+import pageMixin from '@/mixins/page'
 export default {
   name: 'Operate',
+  components: {
+    Pagination
+  },
+  mixins: [pageMixin],
   data() {
     return {
       activeName: 'first'
@@ -24,6 +36,11 @@ export default {
   methods: {
     handleClick(key) {
       console.log(key)
+    },
+    paginationChange(params) {
+      this.page.pageSize = params.pageSize
+      this.page.pageNum = params.pageNum
+      console.log(params)
     }
   }
 }
@@ -32,7 +49,6 @@ export default {
 <style lang='scss' scope>
 .page{
   padding: 16px;
-  background: #f2f5f7;
-  min-height: calc(100vh - 50px);
+  background: #fff;
 }
 </style>
