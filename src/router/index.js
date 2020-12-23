@@ -45,13 +45,73 @@ export const constantRoutes = [
   {
     path: '/',
     component: Layout,
-    redirect: '/dashboard',
+    redirect: '/home',
+    meta: { title: '首页', icon: 'dashboard' },
     children: [
       {
-        path: 'dashboard',
-        name: 'Dashboard',
-        component: () => import('@/views/dashboard/index'),
-        meta: { title: '首页', icon: 'dashboard' }
+        path: 'home',
+        name: 'home',
+        component: () => import('@/views/home'),
+        
+        redirect: 'home/service',
+        children:[
+          {
+            path: 'service',
+            name: 'service',
+            component: () => import('@/views/home/service'),
+            // meta: { title: '服务状态', icon: 'dashboard' },
+          },
+          {
+            path: 'sys',
+            name: 'sys',
+            component: () => import('@/views/home/sys'),
+            // meta: { title: '系统状态', icon: 'dashboard' },
+          },
+          {
+            path: 'dbMashine',
+            name: 'dbMashine',
+            component: () => import('@/views/home/dbMashine'),
+            // meta: { title: '双机配置', icon: 'dashboard' },
+          },
+          
+          {
+            path: 'setCopy',
+            name: 'setCopy',
+            component: () => import('@/views/home/setCopy'),
+            // meta: { title: '配置备份', icon: 'dashboard' },
+          },
+          {
+            path: 'dataSync',
+            name: 'dataSync',
+            component: () => import('@/views/home/dataSync'),
+            // meta: { title: '数据同步', icon: 'dashboard' },
+          },
+          {
+            path: 'swUpgrade',
+            name: 'swUpgrade',
+            component: () => import('@/views/home/swUpgrade'),
+            // meta: { title: '软件升级', icon: 'dashboard' },
+          },
+          {
+            path: 'timedTask',
+            name: 'timedTask',
+            component: () => import('@/views/home/timedTask'),
+            // meta: { title: '定时任务', icon: 'dashboard' },
+          },
+          {
+            path: 'iconUpload',
+            name: 'iconUpload',
+            component: () => import('@/views/home/iconUpload'),
+            // meta: { title: '图标上传', icon: 'dashboard' },
+          },
+          {
+            path: 'sysNotice',
+            name: 'sysNotice',
+            component: () => import('@/views/home/sysNotice'),
+            // meta: { title: '系统通知', icon: 'dashboard' },
+          },
+
+        ]
       }
     ]
   },

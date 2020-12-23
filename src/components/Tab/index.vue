@@ -1,6 +1,6 @@
 <template>
     <el-tabs v-model="activeName" @tab-click="handleClick">
-        <el-tab-pane :label="v.name" :name="v.name" v-for="(v,i) in tabList" :key="i"></el-tab-pane>
+        <el-tab-pane :label="v.name" :name="v.url" v-for="(v,i) in tabList" :key="i"></el-tab-pane>
     </el-tabs>
 </template>
 
@@ -13,9 +13,14 @@ export default {
             default:()=>[]
         }
     },
+    data(){
+        return{
+            activeName:null
+        }
+    },
     methods:{
         handleClick(v){
-            this.$router.push({path:v.url})
+            this.$router.push({path:v.name})
         }
     }
 
