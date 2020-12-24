@@ -1,9 +1,9 @@
 <template>
   <el-pagination
     background
-    :current-page="pageNum"
-    :page-size="pageSize"
-    layout="prev, pager, next, sizes,jumper"
+    :current-page="page"
+    :page-size="items_per_page"
+    layout="total,prev, pager, next, sizes,jumper"
     :total="total"
     @size-change="handleSizeChange"
     @current-change="handleCurrentChange"
@@ -17,11 +17,12 @@ export default {
       required: true,
       type: Number
     },
-    pageNum: {
+    page: {
       required: true,
       type: Number
     },
-    pageSize: {
+    // eslint-disable-next-line vue/prop-name-casing
+    items_per_page: {
       required: false,
       type: Number,
       default: 20
@@ -30,14 +31,14 @@ export default {
   methods: {
     handleSizeChange(val) {
       this.$emit('paginationChange', {
-        pageSize: val,
-        pageNum: 1
+        items_per_page: val,
+        page: 1
       })
     },
     handleCurrentChange(val) {
       this.$emit('paginationChange', {
-        pageSize: this.pageSize,
-        pageNum: val
+        items_per_page: this.items_per_page,
+        page: val
       })
     }
   }

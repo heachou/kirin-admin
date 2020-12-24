@@ -3,8 +3,8 @@ const pageMixin = {
     return {
       page: {
         total: 0,
-        pageSize: 20,
-        pageNum: 1
+        items_per_page: 10,
+        page: 1
       }
     }
   }
