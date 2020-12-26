@@ -8,7 +8,7 @@
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
           <img :src="avatar" class="user-avatar">
-          {{name}}
+          {{ name }}
           <i class="el-icon-caret-bottom" />
         </div>
         <el-dropdown-menu slot="dropdown" class="user-dropdown">
@@ -39,19 +39,19 @@ export default {
     Breadcrumb,
     Hamburger
   },
+  data() {
+    return {
+      avatar: require('@/assets/images/yw_43.jpg')
+    }
+  },
   computed: {
     ...mapGetters([
       'sidebar',
       'name'
     ])
   },
-  data(){
-    return {
-      avatar: require('@/assets/images/yw_43.jpg')
-    }
-  },
   methods: {
-    change(){
+    change() {
       console.log('切换')
     },
     toggleSideBar() {

@@ -14,11 +14,11 @@
         v-bind="column"
       />
       <el-table-column
-        label="详细"
+        label="操作"
       >
         <template slot-scope="scope">
           <i class="el-icon-time" />
-          <span style="margin-left: 10px">详细 未实现{{ scope.sid }}</span>
+          <span style="margin-left: 10px">操作 未实现{{ scope.sid }}</span>
         </template>
       </el-table-column>
     </custom-table>
@@ -34,10 +34,10 @@
 <script>
 import Pagination from '@/components/Pagination'
 import pageMixin from '@/mixins/page'
-import Search from '../comp/search'
+import Search from './search'
 import CustomTable from '@/components/Table'
 import { getSSHList } from '@/api/audit'
-import { sshTableColumns } from '../static-data'
+import { appListTableColumns } from '../static-data'
 
 export default {
   components: {
@@ -49,7 +49,7 @@ export default {
   data() {
     return {
       tableData: [],
-      columns: sshTableColumns,
+      columns: appListTableColumns,
       loading: false
     }
   },
@@ -59,7 +59,7 @@ export default {
   methods: {
     async getList() {
       const params = {
-        type: 'ssh',
+        type: 'apppub',
         ...this.page
       }
       this.loading = true
