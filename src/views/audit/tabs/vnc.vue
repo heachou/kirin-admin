@@ -14,6 +14,10 @@
         v-bind="column"
       />
       <el-table-column
+        label="流量(K)"
+        prop="liuliang"
+      />
+      <el-table-column
         label="详细"
       >
         <template slot-scope="scope">
@@ -34,10 +38,10 @@
 <script>
 import Pagination from '@/components/Pagination'
 import pageMixin from '@/mixins/page'
-import Search from '../comp/search'
+import Search from '../comp/sftb_search'
 import CustomTable from '@/components/Table'
-import { getSSHList } from '@/api/audit'
-import { sshTableColumns } from '../static-data'
+import { getSFTBList } from '@/api/audit'
+import { rdpTableColumns } from '../static-data'
 
 export default {
   components: {
@@ -49,7 +53,7 @@ export default {
   data() {
     return {
       tableData: [],
-      columns: sshTableColumns,
+      columns: rdpTableColumns,
       loading: false
     }
   },
@@ -59,11 +63,11 @@ export default {
   methods: {
     async getList() {
       const params = {
-        type: 'ssh',
+        type: 'vnc',
         ...this.page
       }
       this.loading = true
-      const res = await getSSHList(params)
+      const res = await getSFTBList(params)
       this.tableData = res.data || []
       this.page.total = res.rows ? Number(res.rows) : 0
       this.loading = false

@@ -72,13 +72,13 @@ export const constantRoutes = [
       {
         path: 'application',
         name: 'Application',
-        component: () => import('@/views/tree/index'),
+        component: () => import('@/views/audit/application/application'),
         meta: { title: '应用审计' }
       },
       {
         path: 'monitor',
         name: 'Monitor',
-        component: () => import('@/views/tree/index'),
+        component: () => import('@/views/audit/monitor/monitor'),
         meta: { title: '实时监控' }
       },
       {

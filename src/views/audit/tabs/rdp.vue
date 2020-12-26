@@ -37,7 +37,7 @@ import pageMixin from '@/mixins/page'
 import Search from '../comp/search'
 import CustomTable from '@/components/Table'
 import { getSSHList } from '@/api/audit'
-import { sshTableColumns } from '../static-data'
+import { rdpTableColumns } from '../static-data'
 
 export default {
   components: {
@@ -49,7 +49,7 @@ export default {
   data() {
     return {
       tableData: [],
-      columns: sshTableColumns,
+      columns: rdpTableColumns,
       loading: false
     }
   },
@@ -59,7 +59,7 @@ export default {
   methods: {
     async getList() {
       const params = {
-        type: 'ssh',
+        type: 'rdp',
         ...this.page
       }
       this.loading = true

@@ -1,29 +1,23 @@
 <template>
   <div class="page">
     <el-tabs v-model="activeName" @tab-click="handleClick">
-      <el-tab-pane label="Telnet/SSH" name="first">
+      <el-tab-pane label="SSH 实时监控" name="first">
         <telnet />
       </el-tab-pane>
-      <el-tab-pane label="SFTP" name="second">
+      <el-tab-pane label="Telnet 实时监控" name="second">
         <sftb />
       </el-tab-pane>
-      <el-tab-pane label="SCP" name="third">
+      <el-tab-pane label="RDP实时监控" name="third">
         <scp />
       </el-tab-pane>
-      <el-tab-pane label="FTP" name="FTP">
-        <ftp />
-      </el-tab-pane>
-      <el-tab-pane label="RDP" name="RDP">
-        <rdp />
-      </el-tab-pane>
-      <el-tab-pane label="VNC" name="VNC">
+      <el-tab-pane label="VNC实时监控" name="VNC">
         <vnc />
       </el-tab-pane>
-      <el-tab-pane label="X11" name="X11">
-        <x11 />
+      <el-tab-pane label="应用发布实时监控" name="RDP">
+        <rdp />
       </el-tab-pane>
-      <el-tab-pane label="流程审批" name="流程审批">
-        <process />
+      <el-tab-pane label="WEB在线用户" name="X11">
+        <x11 />
       </el-tab-pane>
     </el-tabs>
   </div>
@@ -33,32 +27,27 @@
 import Telnet from '../tabs/telnet'
 import Sftb from '../tabs/sftp'
 import Scp from '../tabs/scp'
-import Ftp from '../tabs/ftp'
 import Rdp from '../tabs/rdp'
 import Vnc from '../tabs/vnc'
 import X11 from '../tabs/x11'
-import Process from '../tabs/process'
 
 export default {
-  name: 'Operate',
+  name: 'Monitor',
   components: {
     Telnet,
     Sftb,
     Scp,
-    Ftp,
     Rdp,
     Vnc,
-    X11,
-    Process
+    X11
   },
   data() {
     return {
       activeName: 'first'
     }
-  },
+  }, 
   methods: {
     handleClick(key) {
-      console.log(key)
     },
     paginationChange(params) {
       this.page.pageSize = params.pageSize

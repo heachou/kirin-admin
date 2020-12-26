@@ -8,3 +8,12 @@ export function getSSHList(data) {
     data: data
   })
 }
+
+// 1.1、	1.3、	获取SFTP审计接口
+export function getSFTBList(data) {
+  return request({
+    url: `/admin.php?controller=admin_interface&action=sessionList`,
+    method: 'post',
+    data: data
+  })
+}
