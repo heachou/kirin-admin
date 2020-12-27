@@ -5,6 +5,7 @@
     border
     :size="size"
     style="width: 100%"
+    :header-cell-style="{background:'rgb(236, 245, 255)'}"
   >
     <slot />
   </el-table>

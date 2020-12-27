@@ -158,7 +158,7 @@ export const constantRoutes = [
       {
         path: 'systemAuth',
         name: 'SystemAuth',
-        component: () => import('@/views/form/index'),
+        component: () => import('@/views/form/systemAuth/systemAuth'),
         meta: { title: '系统权限' }
       },
       {

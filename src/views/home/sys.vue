@@ -2,20 +2,12 @@
   <div class="sys">
     <div class="sys-top">
       <div class="sys-top-left">
-        <div class="box-title">
-
-        </div>
+        <div class="box-title" />
       </div>
-      <div class="sys-top-right">
-
-
-
-      </div>
+      <div class="sys-top-right" />
 
     </div>
-    <div class="syx-bottom">
-
-    </div>
+    <div class="syx-bottom" />
   </div>
 </template>
 
