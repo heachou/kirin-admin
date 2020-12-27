@@ -56,7 +56,7 @@ Refer to [Documentation](https://panjiachen.github.io/vue-element-admin-site/gui
 
 ## 账号
 
-- 地址 https://47.94.35.212
+- 地址 <https://47.94.35.212>
 - admin
 - HISN82385354
 - 动态口令不用管，直接登录
