@@ -4,7 +4,7 @@
 
 <script>
 export default {
-    name:"setCopy"
+  name: 'SetCopy'
 
 }
 </script>

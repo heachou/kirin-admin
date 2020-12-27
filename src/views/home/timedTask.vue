@@ -4,7 +4,7 @@
 
 <script>
 export default {
-    name:"timedTask"
+  name: 'TimedTask'
 
 }
 </script>

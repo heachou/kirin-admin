@@ -45,7 +45,7 @@ export default {
     return {
       activeName: 'first'
     }
-  }, 
+  },
   methods: {
     handleClick(key) {
     },
