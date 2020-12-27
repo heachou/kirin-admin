@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import audit from './audit'
 
 Vue.use(Router)
 
@@ -55,40 +56,7 @@ export const constantRoutes = [
       }
     ]
   },
-
-  {
-    path: '/audit',
-    component: Layout,
-    redirect: '/audit/operate',
-    name: 'Audit',
-    meta: { title: '运维审计', icon: 'el-icon-s-help' },
-    children: [
-      {
-        path: 'operate',
-        name: 'Operate',
-        component: () => import('@/views/audit/operate/operate'),
-        meta: { title: '操作审计' }
-      },
-      {
-        path: 'application',
-        name: 'Application',
-        component: () => import('@/views/audit/application/application'),
-        meta: { title: '应用审计' }
-      },
-      {
-        path: 'monitor',
-        name: 'Monitor',
-        component: () => import('@/views/audit/monitor/monitor'),
-        meta: { title: '实时监控' }
-      },
-      {
-        path: 'lookup',
-        name: 'Lookup',
-        component: () => import('@/views/tree/index'),
-        meta: { title: '审计查询' }
-      }
-    ]
-  },
+  audit,
   {
     path: '/report',
     component: Layout,
