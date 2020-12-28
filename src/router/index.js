@@ -132,7 +132,7 @@ export const constantRoutes = [
       {
         path: 'loginReport',
         name: 'LoginReport',
-        component: () => import('@/views/form/index'),
+        component: () => import('@/views/form/loginForm/loginForm'),
         meta: { title: '登录报表' }
       },
       {
