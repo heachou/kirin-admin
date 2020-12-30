@@ -1,22 +1,18 @@
 <template>
-  <div class="sysAccount">
+  <div class="sysLogin">
     <el-form label-width="auto" :model="form" size="small" :inline="true" label-position="left">
-      <el-form-item label="运维用户">
+       <el-form-item label="资源组">
         <el-select v-model="form.region" style="margin-right:20px">
           <el-option label="区域一" value="shanghai" />
           <el-option label="区域二" value="beijing" />
         </el-select>
-        <el-checkbox>实名</el-checkbox>
       </el-form-item>
-      <el-form-item label="应用发布ip">
-        <el-select v-model="form.region">
-          <el-option label="区域一" value="shanghai" />
-          <el-option label="区域二" value="beijing" />
-        </el-select>
-      </el-form-item>
-      <el-form-item label="本地用户">
-        <el-input v-model="form.name" />
-      </el-form-item>
+       <el-form-item label="开始日期">
+         <el-date-picker v-model="form.name" type="date" placeholder="选择日期" value-format="yyyy-MM-dd"> </el-date-picker>
+       </el-form-item>
+        <el-form-item label="结束日期">
+         <el-date-picker v-model="form.name" type="date" placeholder="选择日期" value-format="yyyy-MM-dd"> </el-date-picker>
+       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="listVisible = true"> 查 找 </el-button>
       </el-form-item>
@@ -38,7 +34,7 @@
 import CustomTable from '@/components/Table'
 import Pagination from '@/components/Pagination'
 import pageMixin from '@/mixins/page'
-import { sysAccountColumns } from './static-data'
+import { sysLoginColumns } from './static-data'
 export default {
   components: {
     Pagination,
@@ -47,7 +43,7 @@ export default {
   mixins: [pageMixin],
   data() {
     return {
-      columns: sysAccountColumns,
+      columns: sysLoginColumns,
       form: {
 
       },
@@ -73,7 +69,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.sysAccount{
+.sysLogin{
    border:1px solid #EBEEF5;
     padding:20px;
 

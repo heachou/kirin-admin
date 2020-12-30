@@ -1,29 +1,12 @@
 <template>
-  <div class="sysAccount">
-    <el-form label-width="auto" :model="form" size="small" :inline="true" label-position="left">
-      <el-form-item label="运维用户">
-        <el-select v-model="form.region" style="margin-right:20px">
-          <el-option label="区域一" value="shanghai" />
-          <el-option label="区域二" value="beijing" />
-        </el-select>
-        <el-checkbox>实名</el-checkbox>
-      </el-form-item>
-      <el-form-item label="应用发布ip">
-        <el-select v-model="form.region">
-          <el-option label="区域一" value="shanghai" />
-          <el-option label="区域二" value="beijing" />
-        </el-select>
-      </el-form-item>
-      <el-form-item label="本地用户">
-        <el-input v-model="form.name" />
-      </el-form-item>
-      <el-form-item>
-        <el-button type="primary" @click="listVisible = true"> 查 找 </el-button>
-      </el-form-item>
-    </el-form>
-
+  <div class="approval">
     <CustomTable :data="tableData" :columns="columns" :loading="loading">
       <el-table-column v-for="column in columns" :key="column.label" :label="column.label" :prop="column.prop" v-bind="column" />
+      <el-table-column label="操作">
+        <template slot-scope="scope">
+          <el-button type="text" @click="del(scope.row)">删除</el-button>
+        </template>
+      </el-table-column>
     </CustomTable>
     <div class="pagination">
       <pagination
@@ -38,7 +21,7 @@
 import CustomTable from '@/components/Table'
 import Pagination from '@/components/Pagination'
 import pageMixin from '@/mixins/page'
-import { sysAccountColumns } from './static-data'
+import { approvalColumns } from './static-data'
 export default {
   components: {
     Pagination,
@@ -47,7 +30,7 @@ export default {
   mixins: [pageMixin],
   data() {
     return {
-      columns: sysAccountColumns,
+      columns: approvalColumns,
       form: {
 
       },
@@ -58,6 +41,9 @@ export default {
   },
   methods: {
     getList() {
+
+    },
+    del(){
 
     },
     paginationChange(params) {
@@ -73,7 +59,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.sysAccount{
+.approval{
    border:1px solid #EBEEF5;
     padding:20px;
 

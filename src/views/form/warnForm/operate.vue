@@ -1,11 +1,14 @@
 <template>
-  <div class="loginInfo">
+  <div class="operate">
     <el-form label-width="auto" :model="form" size="small" :inline="true" label-position="left">
-       <el-form-item label="资源组">
+      <el-form-item label="资源组">
         <el-select v-model="form.region" style="margin-right:20px">
           <el-option label="区域一" value="shanghai" />
           <el-option label="区域二" value="beijing" />
         </el-select>
+      </el-form-item>
+      <el-form-item label="来源IP">
+        <el-input v-model="form.name" />
       </el-form-item>
        <el-form-item label="开始日期">
          <el-date-picker v-model="form.name" type="date" placeholder="选择日期" value-format="yyyy-MM-dd"> </el-date-picker>
@@ -34,7 +37,7 @@
 import CustomTable from '@/components/Table'
 import Pagination from '@/components/Pagination'
 import pageMixin from '@/mixins/page'
-import { loginInfoColumns } from './static-data'
+import { operateColumns } from './static-data'
 export default {
   components: {
     Pagination,
@@ -43,7 +46,7 @@ export default {
   mixins: [pageMixin],
   data() {
     return {
-      columns: loginInfoColumns,
+      columns: operateColumns,
       form: {
 
       },
@@ -69,7 +72,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.loginInfo{
+.operate{
    border:1px solid #EBEEF5;
     padding:20px;
 

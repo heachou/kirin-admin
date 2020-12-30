@@ -138,13 +138,13 @@ export const constantRoutes = [
       {
         path: 'operate',
         name: 'Operator',
-        component: () => import('@/views/form/index'),
+        component: () => import('@/views/form/operateForm/operateForm'),
         meta: { title: '操作报表' }
       },
       {
         path: 'warning',
         name: 'Warning',
-        component: () => import('@/views/form/index'),
+        component: () => import('@/views/form/warnForm/warnForm'),
         meta: { title: '告警报表' }
       },
       {
