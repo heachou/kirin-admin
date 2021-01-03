@@ -58,13 +58,13 @@ export default {
     IconUpload,
     SysNotice
   },
-  computed: {
-    ...mapGetters(['name'])
-  },
   data() {
     return {
       activeName: '1'
     }
+  },
+  computed: {
+    ...mapGetters(['name'])
   },
   methods: {
     handleClick() {

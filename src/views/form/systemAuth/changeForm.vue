@@ -42,7 +42,7 @@
         </el-col>
         <el-col :span="1">
           <el-form-item>
-            <el-button type="primary" @click="listVisible = true" style="margin-top:38px"> 查 找 </el-button>
+            <el-button type="primary" style="margin-top:38px" @click="listVisible = true"> 查 找 </el-button>
           </el-form-item>
 
         </el-col>

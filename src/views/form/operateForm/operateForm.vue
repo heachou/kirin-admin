@@ -16,7 +16,7 @@
       <el-tab-pane label="SFTP命令报表" name="5">
         <Sftp v-if="activeName=='5'" />
       </el-tab-pane>
-       <el-tab-pane label="FTP命令报表" name="6">
+      <el-tab-pane label="FTP命令报表" name="6">
         <Ftp v-if="activeName=='6'" />
       </el-tab-pane>
     </el-tabs>
@@ -32,7 +32,7 @@ import Sftp from './sftp'
 import Ftp from './ftp'
 
 export default {
-  name: 'operateForm',
+  name: 'OperateForm',
   components: {
     OrderAll,
     OrderCount,

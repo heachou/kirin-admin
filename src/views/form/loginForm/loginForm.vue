@@ -35,7 +35,7 @@ import LastLogin from './lastLogin'
 import AppLogin from './appLogin'
 import Approval from './approval'
 export default {
-  name: 'loginForm',
+  name: 'LoginForm',
   components: {
     AuthInfo,
     LoginInfo,

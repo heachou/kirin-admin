@@ -43,7 +43,7 @@ export default {
     getList() {
 
     },
-    del(){
+    del() {
 
     },
     paginationChange(params) {

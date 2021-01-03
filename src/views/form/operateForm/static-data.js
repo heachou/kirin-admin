@@ -90,7 +90,7 @@ export const operateColumns = [
     prop: 'type',
     width: 'auto'
   },
-   {
+  {
     label: '告警命令',
     prop: 'type',
     width: 'auto'
@@ -105,6 +105,6 @@ export const operateColumns = [
     prop: 'type',
     width: 'auto'
   }
-  
+
 ]
 

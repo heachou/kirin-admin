@@ -22,13 +22,13 @@
       <el-form-item label="运维用户">
         <el-input v-model="form.name" />
       </el-form-item>
-       <el-form-item label="系统用户">
+      <el-form-item label="系统用户">
         <el-input v-model="form.name" />
       </el-form-item>
-       <el-form-item label="开始日期">
-         <el-date-picker v-model="form.name" type="date" placeholder="选择日期" value-format="yyyy-MM-dd"> </el-date-picker>
-       </el-form-item>
-        
+      <el-form-item label="开始日期">
+        <el-date-picker v-model="form.name" type="date" placeholder="选择日期" value-format="yyyy-MM-dd" />
+      </el-form-item>
+
       <el-form-item>
         <el-button type="primary" @click="listVisible = true"> 查 找 </el-button>
       </el-form-item>

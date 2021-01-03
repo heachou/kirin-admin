@@ -19,7 +19,7 @@ export default {
   name: 'WarnForm',
   components: {
     Statistics,
-    Operate,
+    Operate
   },
   data() {
     return {

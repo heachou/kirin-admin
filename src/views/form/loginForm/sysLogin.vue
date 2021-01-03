@@ -1,18 +1,18 @@
 <template>
   <div class="sysLogin">
     <el-form label-width="auto" :model="form" size="small" :inline="true" label-position="left">
-       <el-form-item label="资源组">
+      <el-form-item label="资源组">
         <el-select v-model="form.region" style="margin-right:20px">
           <el-option label="区域一" value="shanghai" />
           <el-option label="区域二" value="beijing" />
         </el-select>
       </el-form-item>
-       <el-form-item label="开始日期">
-         <el-date-picker v-model="form.name" type="date" placeholder="选择日期" value-format="yyyy-MM-dd"> </el-date-picker>
-       </el-form-item>
-        <el-form-item label="结束日期">
-         <el-date-picker v-model="form.name" type="date" placeholder="选择日期" value-format="yyyy-MM-dd"> </el-date-picker>
-       </el-form-item>
+      <el-form-item label="开始日期">
+        <el-date-picker v-model="form.name" type="date" placeholder="选择日期" value-format="yyyy-MM-dd" />
+      </el-form-item>
+      <el-form-item label="结束日期">
+        <el-date-picker v-model="form.name" type="date" placeholder="选择日期" value-format="yyyy-MM-dd" />
+      </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="listVisible = true"> 查 找 </el-button>
       </el-form-item>
