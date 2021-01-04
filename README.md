@@ -60,3 +60,4 @@ Refer to [Documentation](https://panjiachen.github.io/vue-element-admin-site/gui
 - admin
 - HISN82385354
 - 动态口令不用管，直接登录
+- [部署地址](http://39.106.77.227:8080/home)
