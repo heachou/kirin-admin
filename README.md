@@ -58,6 +58,6 @@ Refer to [Documentation](https://panjiachen.github.io/vue-element-admin-site/gui
 
 - 地址 <https://47.94.35.212>
 - admin
-- HISN82385354
+- baoleiji1
 - 动态口令不用管，直接登录
 - [部署地址](http://39.106.77.227:8080/home)

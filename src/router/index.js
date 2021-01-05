@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import audit from './audit'
+import resource from './resource'
 
 Vue.use(Router)
 
@@ -54,65 +55,6 @@ export const constantRoutes = [
         name: 'home',
         component: () => import('@/views/home'),
         meta: { title: '首页', icon: 'dashboard' }
-        // redirect: 'home/service',
-        // children: [
-        //   {
-        //     path: 'service',
-        //     name: 'service',
-        //     component: () => import('@/views/home/service')
-        //     // meta: { title: '服务状态', icon: 'dashboard' },
-        //   },
-        //   {
-        //     path: 'sys',
-        //     name: 'sys',
-        //     component: () => import('@/views/home/sys')
-        //     // meta: { title: '系统状态', icon: 'dashboard' },
-        //   },
-        //   {
-        //     path: 'dbMashine',
-        //     name: 'dbMashine',
-        //     component: () => import('@/views/home/dbMashine')
-        //     // meta: { title: '双机配置', icon: 'dashboard' },
-        //   },
-
-        //   {
-        //     path: 'setCopy',
-        //     name: 'setCopy',
-        //     component: () => import('@/views/home/setCopy')
-        //     // meta: { title: '配置备份', icon: 'dashboard' },
-        //   },
-        //   {
-        //     path: 'dataSync',
-        //     name: 'dataSync',
-        //     component: () => import('@/views/home/dataSync')
-        //     // meta: { title: '数据同步', icon: 'dashboard' },
-        //   },
-        //   {
-        //     path: 'swUpgrade',
-        //     name: 'swUpgrade',
-        //     component: () => import('@/views/home/swUpgrade')
-        //     // meta: { title: '软件升级', icon: 'dashboard' },
-        //   },
-        //   {
-        //     path: 'timedTask',
-        //     name: 'timedTask',
-        //     component: () => import('@/views/home/timedTask')
-        //     // meta: { title: '定时任务', icon: 'dashboard' },
-        //   },
-        //   {
-        //     path: 'iconUpload',
-        //     name: 'iconUpload',
-        //     component: () => import('@/views/home/iconUpload')
-        //     // meta: { title: '图标上传', icon: 'dashboard' },
-        //   },
-        //   {
-        //     path: 'sysNotice',
-        //     name: 'sysNotice',
-        //     component: () => import('@/views/home/sysNotice')
-        //     // meta: { title: '系统通知', icon: 'dashboard' },
-        //   }
-
-        // ]
       }
     ]
   },
@@ -173,48 +115,7 @@ export const constantRoutes = [
       }
     ]
   },
-  {
-    path: '/resource',
-    component: Layout,
-    redirect: '/resource/webUser',
-    name: 'Resource',
-    meta: {
-      title: '资源管理',
-      icon: 'el-icon-box'
-    },
-    children: [
-      {
-        path: 'webUser',
-        component: () => import('@/views/nested/menu1/index'), // Parent router-view
-        name: 'WebUser',
-        meta: { title: 'web用户' }
-      },
-      {
-        path: 'equipmentManage',
-        component: () => import('@/views/nested/menu2/index'),
-        name: 'EquipmentManage',
-        meta: { title: '设备管理' }
-      },
-      {
-        path: 'authManage',
-        component: () => import('@/views/nested/menu2/index'),
-        name: 'AuthManage',
-        meta: { title: '授权管理' }
-      },
-      {
-        path: 'appManage',
-        component: () => import('@/views/nested/menu2/index'),
-        name: 'AppManage',
-        meta: { title: '应用管理' }
-      },
-      {
-        path: 'strategyManage',
-        component: () => import('@/views/nested/menu2/index'),
-        name: 'strategyManage',
-        meta: { title: '策略管理' }
-      }
-    ]
-  },
+  resource,
   {
     path: '/config',
     component: Layout,
@@ -227,19 +128,19 @@ export const constantRoutes = [
     children: [
       {
         path: 'vars',
-        component: () => import('@/views/nested/menu1/index'), // Parent router-view
+        component: () => import('@/views/resource/web-user/web-user'), // Parent router-view
         name: 'Vars',
         meta: { title: '参数配置' }
       },
       {
         path: 'net',
-        component: () => import('@/views/nested/menu2/index'),
+        component: () => import('@/views/resource/web-user/web-user'),
         name: 'Net',
         meta: { title: '网络配置' }
       },
       {
         path: 'sys',
-        component: () => import('@/views/nested/menu2/index'),
+        component: () => import('@/views/resource/web-user/web-user'),
         name: 'Sys',
         meta: { title: '系统管理' }
       }
@@ -257,25 +158,25 @@ export const constantRoutes = [
     children: [
       {
         path: 'vars',
-        component: () => import('@/views/nested/menu1/index'), // Parent router-view
+        component: () => import('@/views/resource/web-user/web-user'), // Parent router-view
         name: 'Vars',
         meta: { title: 'VPN配置' }
       },
       {
         path: 'route',
-        component: () => import('@/views/nested/menu2/index'),
+        component: () => import('@/views/resource/web-user/web-user'),
         name: 'Route',
         meta: { title: 'VPN路由' }
       },
       {
         path: 'online',
-        component: () => import('@/views/nested/menu2/index'),
+        component: () => import('@/views/resource/web-user/web-user'),
         name: 'Online',
         meta: { title: '在线用户' }
       },
       {
         path: 'log',
-        component: () => import('@/views/nested/menu2/index'),
+        component: () => import('@/views/resource/web-user/web-user'),
         name: 'VPNLog',
         meta: { title: 'VPN LOG' }
       }
@@ -293,25 +194,25 @@ export const constantRoutes = [
     children: [
       {
         path: 'token',
-        component: () => import('@/views/nested/menu1/index'), // Parent router-view
+        component: () => import('@/views/resource/web-user/web-user'), // Parent router-view
         name: 'Token',
         meta: { title: '动态令牌' }
       },
       {
         path: 'userInfo',
-        component: () => import('@/views/nested/menu2/index'),
+        component: () => import('@/views/resource/web-user/web-user'),
         name: 'UserInfo',
         meta: { title: '个人信息' }
       },
       {
         path: 'license',
-        component: () => import('@/views/nested/menu2/index'),
+        component: () => import('@/views/resource/web-user/web-user'),
         name: 'License',
         meta: { title: 'License' }
       },
       {
         path: 'tools',
-        component: () => import('@/views/nested/menu2/index'),
+        component: () => import('@/views/resource/web-user/web-user'),
         name: 'Tools',
         meta: { title: '工具下载' }
       }
