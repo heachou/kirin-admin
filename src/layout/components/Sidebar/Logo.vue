@@ -25,7 +25,7 @@ export default {
   data() {
     return {
       title: '海盛计算机系统平台',
-      logo: require('@/assets/images/logo.jpg')
+      logo: require('../../../assets/images/logo.jpg')
     }
   }
 }
