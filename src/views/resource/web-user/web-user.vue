@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <el-tabs>
+    <el-tabs v-model="activeName">
       <el-tab-pane label="用户管理" name="first">
         <user-manage />
       </el-tab-pane>
@@ -18,10 +18,10 @@
 </template>
 
 <script>
-import UserManage from './tabs/user-manage'
-import UserGroupManage from './tabs/user-group-manage.vue'
-import User3A from './tabs/user-3A.vue'
-import UserAttr from './tabs/user-attr.vue'
+import UserManage from './user-manage/user-manage'
+import UserGroupManage from './tabs/user-group-manage'
+import User3A from './tabs/user-3A'
+import UserAttr from './tabs/user-attr'
 
 export default {
   name: 'WebUser',
@@ -30,10 +30,18 @@ export default {
     UserGroupManage,
     UserAttr,
     User3A
+  },
+  data() {
+    return {
+      activeName: 'first'
+    }
   }
 }
 </script>
 
 <style lang="scss">
-
+.page{
+  padding: 16px;
+  background: #fff;
+}
 </style>

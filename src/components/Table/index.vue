@@ -3,9 +3,9 @@
     v-loading="loading"
     :data="data"
     border
-    :size="size"
     style="width: 100%"
     :header-cell-style="{background:'rgb(236, 245, 255)'}"
+    v-bind="$props"
   >
     <slot />
   </el-table>
@@ -16,11 +16,6 @@ export default {
   name: 'CustomTable',
   props: {
     data: {
-      type: Array,
-      required: true,
-      default: () => []
-    },
-    columns: {
       type: Array,
       required: true,
       default: () => []

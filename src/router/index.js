@@ -159,7 +159,7 @@ export const constantRoutes = [
       {
         path: 'vars',
         component: () => import('@/views/resource/web-user/web-user'), // Parent router-view
-        name: 'Vars',
+        name: 'VPNConfig',
         meta: { title: 'VPN配置' }
       },
       {
