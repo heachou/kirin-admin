@@ -19,7 +19,7 @@
 
 <script>
 import UserManage from './user-manage/user-manage'
-import UserGroupManage from './tabs/user-group-manage'
+import UserGroupManage from './user-group/user-group-manage'
 import User3A from './tabs/user-3A'
 import UserAttr from './tabs/user-attr'
 

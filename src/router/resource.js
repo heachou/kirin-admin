@@ -5,6 +5,7 @@ const audit = {
   component: Layout,
   redirect: '/resource/webUser',
   name: 'Resource',
+  breadcrumb: false,
   meta: {
     title: '资源管理',
     icon: 'el-icon-box'
@@ -12,9 +13,25 @@ const audit = {
   children: [
     {
       path: 'webUser',
-      component: () => import('@/views/resource/web-user/web-user'), // Parent router-view
-      name: 'WebUser',
-      meta: { title: 'web用户' }
+      component: () => import('@/views/resource/web-user/web-user-router'), // Parent router-view
+      name: 'WebUserContainer',
+      meta: { title: 'web用户' },
+      breadcrumb: false,
+      children: [
+        {
+          path: '',
+          component: () => import('@/views/resource/web-user/web-user'), // Parent router-view
+          name: 'WebUser',
+          meta: { title: '查看' }
+        },
+        {
+          path: 'add',
+          component: () => import('@/views/resource/web-user/add/add'),
+          name: 'WebUserAdd',
+          meta: { title: '添加Web用户' },
+          hidden: true
+        }
+      ]
     },
     {
       path: 'equipmentManage',

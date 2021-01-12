@@ -1,12 +1,13 @@
 <template>
-  <div>UserGroupManage-manage</div>
+  <div>上传用户</div>
 </template>
 
 <script>
 export default {
-  name: 'UserGroupManage'
+  name: 'AddByFile'
 }
 </script>
 
 <style>
+
 </style>

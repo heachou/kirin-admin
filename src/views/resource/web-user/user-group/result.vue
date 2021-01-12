@@ -4,47 +4,17 @@
       <div>
         <el-button
           size="small"
-          type="success"
-        >编辑选中</el-button>
-        <el-button
-          size="small"
-          type="info"
-        >批量编辑</el-button>
-        <el-button
-          size="small"
-          type="info"
-        >AD编辑</el-button>
-        <el-button
-          size="small"
-          type="warning"
-        >锁定</el-button>
-        <el-button
-          size="small"
-          type="danger"
-        >删除用户</el-button>
-      </div>
-      <div>
-        <el-button
-          size="small"
           type="primary"
           @click="toAdd"
-        >添加用户</el-button>
-        <el-button
-          size="small"
-          type="primary"
-        >导出</el-button>
+        >添加新节点</el-button>
       </div>
     </div>
-    <custom-table
+    <el-table
       :data="tableData"
       :columns="columns"
       size="small"
       :loading="loading"
     >
-      <el-table-column
-        type="selection"
-        width="55"
-      />
       <el-table-column
         v-for="column in columns"
         :key="column.label"
@@ -58,7 +28,7 @@
           <span style="margin-left: 10px">详细 未实现{{ scope.sid }}</span>
         </template>
       </el-table-column>
-    </custom-table>
+    </el-table>
     <div class="pagination">
       <pagination
         v-bind="page"
@@ -72,13 +42,11 @@
 import { webUserColumns } from '../static-data'
 import Pagination from '@/components/Pagination'
 import pageMixin from '@/mixins/page'
-import CustomTable from '@/components/Table'
 import { getSFTBList } from '@/api/audit'
 
 export default {
   components: {
-    Pagination,
-    CustomTable
+    Pagination
   },
   mixins: [pageMixin],
   data() {
